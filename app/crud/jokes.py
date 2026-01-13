@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 
-from ..models import models
+from .. import models
 from .. import schemas
 
 def get_jokes(db: Session, response_model=list[schemas.Joke]):
