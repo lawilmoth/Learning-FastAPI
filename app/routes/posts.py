@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 
 from .users import get_db
 from app.schemas.post import PostCreate, Post
-from app.crud.posts import create_post, get_posts_for_user
+from app.crud.posts import create_post, get_posts_for_user, get_all_posts
 from app.auth.sessions import get_current_user
 
 router = APIRouter(prefix="/posts", tags=["posts"])
@@ -21,4 +21,4 @@ def get_my_posts(
     user_id: int = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
-    return get_posts_for_user(db, user_id)
+    return get_all_posts(db)

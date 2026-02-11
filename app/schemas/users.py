@@ -18,3 +18,6 @@ class User(UserBase):
 class UserLogin(BaseModel):
     email:str
     plain_text_password: str
+
+class UserOut(UserBase):
+    pass

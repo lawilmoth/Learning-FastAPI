@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from datetime import datetime
+from .users import UserOut
 
 class PostBase(BaseModel):
     title: str
@@ -10,8 +11,10 @@ class PostCreate(PostBase):
 
 class Post(PostBase):
     id: int
-    author_id: int
+    content: str
     created_at: datetime
+    author: UserOut #come from users schema
 
     class Config:
         from_attributes = True
+
